@@ -1,14 +1,11 @@
-package RomanNumber.Practise.IOPractise;
+package Practise.IOPractise;
 
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.MessageDigest;
 
-/**
- * Created by wWX345330 on 2017/5/24.
- */
-public class MyDigestOutputStream extends FilterOutputStream {
+public class StringDigestOutputStream extends FilterOutputStream {
 
     private MessageDigest messageDigest;
 
@@ -29,7 +26,7 @@ public class MyDigestOutputStream extends FilterOutputStream {
      *            <code>null</code> if this instance is to be
      *            created without an underlying stream.
      */
-    public MyDigestOutputStream(OutputStream out, MessageDigest messageDigest) {
+    public StringDigestOutputStream(OutputStream out, MessageDigest messageDigest) {
         super(out);
         setMessageDigest(messageDigest);
     }
