@@ -38,7 +38,6 @@ public class TripleDESUtils {
      */
     public static byte[] encrypt(byte[] data, byte[] key) throws Exception {
         SecretKey secretKey = new SecretKeySpec(key, "DESede");
-
         Cipher cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
         byte[] cipherBytes = cipher.doFinal(data);
@@ -50,7 +49,6 @@ public class TripleDESUtils {
      */
     public static byte[] decrypt(byte[] data, byte[] key) throws Exception {
         SecretKey secretKey = new SecretKeySpec(key, "DESede");
-
         Cipher cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
         byte[] plainBytes = cipher.doFinal(data);
