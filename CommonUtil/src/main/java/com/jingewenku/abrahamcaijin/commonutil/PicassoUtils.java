@@ -181,7 +181,8 @@ public class PicassoUtils {
     /**
      * 绘制圆角
      */
-    public class RoundTransform implements Transformation{
+    public class RoundTransform implements Transformation
+    {
         private float radius;
         public RoundTransform(float radius) {
             this.radius=radius;
@@ -194,7 +195,6 @@ public class PicassoUtils {
         @Override
         public Bitmap transform(Bitmap bitmap) {
             int size = Math.min(bitmap.getWidth(), bitmap.getHeight());
-
             int x = (bitmap.getWidth() - size) / 2;
             int y = (bitmap.getHeight() - size) / 2;
 
@@ -205,17 +205,14 @@ public class PicassoUtils {
             Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
                 bitmap.getHeight(), Config.ARGB_8888);
             Canvas canvas = new Canvas(output);
-
             final int color = 0xff424242;
             final Paint paint = new Paint();
             final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
             final RectF rectF = new RectF(rect);
-
             paint.setAntiAlias(true);
             canvas.drawARGB(0, 0, 0, 0);
             paint.setColor(color);
             canvas.drawRoundRect(rectF, radius, radius, paint);
-
             paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
             canvas.drawBitmap(bitmap, rect, rect, paint);
             squaredBitmap.recycle();
